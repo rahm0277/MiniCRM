@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Project", "3 Project", "{BBA723D6-21D4-4A52-AD1D-9938F63E0449}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Feature", "2 Feature", "{D932BB5E-7CE7-4353-8AC3-6793F9B197B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Foundation", "1 Foundation", "{B1BDFEEF-B871-48EA-83F2-358F43BA9B49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B21928A1-5E57-4731-9645-F23B0CD749DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Configuration", "0 Configuration", "{28803F3A-7E83-42E0-929B-FC2C0236FFD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.MiniCRM.Website", "Sitecore.MiniCRM.Website\Sitecore.MiniCRM.Website.csproj", "{1279F04E-21A9-4D6F-93BE-2A6C8B626543}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.MiniCRM.Website.Master", "Sitecore.MiniCRM.Website.Master\Sitecore.MiniCRM.Website.Master.scproj", "{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Person", "Person", "{650C7C2C-575F-4B26-A18E-E169CFB94CA9}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.Person.Master", "Sitecore.Feature.Person.Master\Sitecore.Feature.Person.Master.scproj", "{94905BB6-961E-4434-B0AF-9C008D08158D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.Person", "Sitecore.Feature.Person\Sitecore.Feature.Person.csproj", "{CF2BA9D3-9BEE-4B99-955E-8780DBBCC511}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiniCRM", "MiniCRM", "{A4C80FE1-C78B-4C71-9E3B-1E8705A074F6}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.MiniCRM.Website.Content", "Sitecore.MiniCRM.Website.Content\Sitecore.MiniCRM.Website.Content.scproj", "{A59C0353-6436-4176-B1F0-00FEFD5020D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.Forms.Master", "Sitecore.Feature.Forms.Master\Sitecore.Feature.Forms.Master.scproj", "{58C5B5A9-1996-41A2-A463-AA7F8F61247C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.Forms", "Sitecore.Feature.Forms\Sitecore.Feature.Forms.csproj", "{E7D93A90-A347-4BFE-B3DA-D00371687F19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1279F04E-21A9-4D6F-93BE-2A6C8B626543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1279F04E-21A9-4D6F-93BE-2A6C8B626543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1279F04E-21A9-4D6F-93BE-2A6C8B626543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1279F04E-21A9-4D6F-93BE-2A6C8B626543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{94905BB6-961E-4434-B0AF-9C008D08158D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94905BB6-961E-4434-B0AF-9C008D08158D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94905BB6-961E-4434-B0AF-9C008D08158D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{94905BB6-961E-4434-B0AF-9C008D08158D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94905BB6-961E-4434-B0AF-9C008D08158D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94905BB6-961E-4434-B0AF-9C008D08158D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CF2BA9D3-9BEE-4B99-955E-8780DBBCC511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2BA9D3-9BEE-4B99-955E-8780DBBCC511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2BA9D3-9BEE-4B99-955E-8780DBBCC511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2BA9D3-9BEE-4B99-955E-8780DBBCC511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E7D93A90-A347-4BFE-B3DA-D00371687F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D93A90-A347-4BFE-B3DA-D00371687F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D93A90-A347-4BFE-B3DA-D00371687F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D93A90-A347-4BFE-B3DA-D00371687F19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B21928A1-5E57-4731-9645-F23B0CD749DF} = {BBA723D6-21D4-4A52-AD1D-9938F63E0449}
+		{1279F04E-21A9-4D6F-93BE-2A6C8B626543} = {A4C80FE1-C78B-4C71-9E3B-1E8705A074F6}
+		{5DE52A25-1C76-4541-8BA9-4DAF57D6ABA8} = {A4C80FE1-C78B-4C71-9E3B-1E8705A074F6}
+		{650C7C2C-575F-4B26-A18E-E169CFB94CA9} = {D932BB5E-7CE7-4353-8AC3-6793F9B197B8}
+		{94905BB6-961E-4434-B0AF-9C008D08158D} = {650C7C2C-575F-4B26-A18E-E169CFB94CA9}
+		{CF2BA9D3-9BEE-4B99-955E-8780DBBCC511} = {650C7C2C-575F-4B26-A18E-E169CFB94CA9}
+		{A4C80FE1-C78B-4C71-9E3B-1E8705A074F6} = {BBA723D6-21D4-4A52-AD1D-9938F63E0449}
+		{A59C0353-6436-4176-B1F0-00FEFD5020D0} = {A4C80FE1-C78B-4C71-9E3B-1E8705A074F6}
+		{98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D} = {D932BB5E-7CE7-4353-8AC3-6793F9B197B8}
+		{58C5B5A9-1996-41A2-A463-AA7F8F61247C} = {98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D}
+		{E7D93A90-A347-4BFE-B3DA-D00371687F19} = {98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDE7035C-5E4C-4A36-9901-226E27BC6218}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal
