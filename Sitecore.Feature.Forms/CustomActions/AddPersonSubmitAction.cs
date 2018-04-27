@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
+using Newtonsoft.Json.Linq;
 using Sitecore.Diagnostics;
 using Sitecore.ExperienceForms.Models;
 using Sitecore.ExperienceForms.Processing;
@@ -50,11 +53,76 @@ namespace Sitecore.Feature.Forms.CustomActions
                 string lastName = GetValue("LastName", formSubmitContext);
                 string email = GetValue("Email", formSubmitContext);
                 string phone = GetValue("Phone", formSubmitContext);
+                string address = GetValue("Address", formSubmitContext);
+                string city = GetValue("City", formSubmitContext);
+                string state = GetValue("State", formSubmitContext);
+                string zip = GetValue("Zip", formSubmitContext);
 
-                Logger.Info("firstName: " + firstName);
-                Logger.Info("lastName: " + lastName);
-                Logger.Info("email: " + email);
-                Logger.Info("phone: " + phone);
+                string contentType = "application/json";
+                string url = @"https://minicrm/sitecore/api/ssc/auth/login";
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(url);
+                
+                HttpResponseMessage response;
+                var method = new HttpMethod("POST");
+
+                JObject o = new JObject
+                {
+                    { "domain", "sitecore" },
+                    { "username", "admin" },
+                    { "password", "b" }
+                };
+                
+                string json = o.ToString();
+                
+                HttpContent body = new StringContent(json);
+                body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+                response = client.PostAsync(url, body).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Logger.Info("LOGIN RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
+
+                    //client = new HttpClient();
+                    url = @"https://minicrm/sitecore/api/ssc/item/sitecore%2Fcontent%2FMiniCRM%2FSite%20Content%2FPersons?database=master";
+                    //client.BaseAddress = new Uri(url);
+
+                    o = new JObject
+                    {
+                        { "ItemName", "Test Person 1" },
+                        { "TemplateID", "9D5BEACE-14DB-4EA2-8F1F-A087A8DAC5F0" },
+                        { "Title", "Test Person" }
+                    };
+
+                    json = o.ToString();
+
+                    body = new StringContent(json);
+                    body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+                    response = client.PostAsync(url, body).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Logger.Info("RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
+
+                    }
+                    else
+                    {
+                        Logger.Info("ADD PERSON BOMBED: " + response.ReasonPhrase, this);
+                    }
+
+                        //// Parse the response body. Blocking!
+                        //var dataObjects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;
+                        //foreach (var d in dataObjects)
+                        //{
+                        //    Console.WriteLine("{0}", d.Name);
+                        //}
+                    }
+                else
+                {
+                    //Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+                    Logger.Info("LOGIN FAILED: " + response.ReasonPhrase, this);
+                }
+
 
             }
             else
