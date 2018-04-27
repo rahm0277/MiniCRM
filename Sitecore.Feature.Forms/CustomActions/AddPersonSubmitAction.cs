@@ -91,7 +91,8 @@ namespace Sitecore.Feature.Forms.CustomActions
                     {
                         { "ItemName", "Test Person 1" },
                         { "TemplateID", "9D5BEACE-14DB-4EA2-8F1F-A087A8DAC5F0" },
-                        { "Title", "Test Person" }
+                        { "First Name", firstName },
+                        { "Last Name", lastName }
                     };
 
                     json = o.ToString();
