@@ -5,10 +5,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using Newtonsoft.Json.Linq;
+using Sitecore.Data;
 using Sitecore.Diagnostics;
 using Sitecore.ExperienceForms.Models;
 using Sitecore.ExperienceForms.Processing;
 using Sitecore.ExperienceForms.Processing.Actions;
+using Sitecore.Feature.Forms.Service;
 using static System.FormattableString;
 
 namespace Sitecore.Feature.Forms.CustomActions
@@ -34,8 +36,11 @@ namespace Sitecore.Feature.Forms.CustomActions
             if (field != null)
             {
                 var property = field.GetType().GetProperty("Value");
-                var postedVal = property.GetValue(field);
-                val = postedVal.ToString();
+                if (property != null)
+                {
+                    var postedVal = property.GetValue(field);
+                    val = postedVal != null ? postedVal.ToString() : string.Empty;
+                }
             }
 
             return val;
@@ -58,79 +63,96 @@ namespace Sitecore.Feature.Forms.CustomActions
                 string state = GetValue("State", formSubmitContext);
                 string zip = GetValue("Zip", formSubmitContext);
 
-                string contentType = "application/json";
-                string url = @"https://minicrm/sitecore/api/ssc/auth/login";
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri(url);
-                
-                HttpResponseMessage response;
-                var method = new HttpMethod("POST");
+                //TODO: hook this up with constructor injection
+                IPersonService ps = new PersonService();
 
-                JObject o = new JObject
+                ID personID = ps.AddPerson(firstName, lastName, email, phone, address, city, state, zip);
+
+                if (!ID.IsNullOrEmpty(personID))
                 {
-                    { "domain", "sitecore" },
-                    { "username", "admin" },
-                    { "password", "b" }
-                };
-                
-                string json = o.ToString();
-                
-                HttpContent body = new StringContent(json);
-                body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
-                response = client.PostAsync(url, body).Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    Logger.Info("LOGIN RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
-
-                    //client = new HttpClient();
-                    url = @"https://minicrm/sitecore/api/ssc/item/sitecore%2Fcontent%2FMiniCRM%2FSite%20Content%2FPersons?database=master";
-                    //client.BaseAddress = new Uri(url);
-
-                    o = new JObject
-                    {
-                        { "ItemName", "Test Person 1" },
-                        { "TemplateID", "9D5BEACE-14DB-4EA2-8F1F-A087A8DAC5F0" },
-                        { "First Name", firstName },
-                        { "Last Name", lastName }
-                    };
-
-                    json = o.ToString();
-
-                    body = new StringContent(json);
-                    body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
-                    response = client.PostAsync(url, body).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        Logger.Info("RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
-
-                    }
-                    else
-                    {
-                        Logger.Info("ADD PERSON BOMBED: " + response.ReasonPhrase, this);
-                    }
-
-                        //// Parse the response body. Blocking!
-                        //var dataObjects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;
-                        //foreach (var d in dataObjects)
-                        //{
-                        //    Console.WriteLine("{0}", d.Name);
-                        //}
-                    }
+                    return true;
+                }
                 else
                 {
-                    //Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
-                    Logger.Info("LOGIN FAILED: " + response.ReasonPhrase, this);
+                    return false;
                 }
+            }
+
+            return false;
+                //    string contentType = "application/json";
+                //    string url = @"https://minicrm/sitecore/api/ssc/auth/login";
+                //    HttpClient client = new HttpClient();
+                //    client.BaseAddress = new Uri(url);
+
+                //    HttpResponseMessage response;
+                //    var method = new HttpMethod("POST");
+
+                //    JObject o = new JObject
+                //    {
+                //        { "domain", "sitecore" },
+                //        { "username", "admin" },
+                //        { "password", "b" }
+                //    };
+
+                //    string json = o.ToString();
+
+                //    HttpContent body = new StringContent(json);
+                //    body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+                //    response = client.PostAsync(url, body).Result;
+
+                //    if (response.IsSuccessStatusCode)
+                //    {
+                //        Logger.Info("LOGIN RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
+
+                //        //client = new HttpClient();
+                //        url = @"https://minicrm/sitecore/api/ssc/item/sitecore%2Fcontent%2FMiniCRM%2FSite%20Content%2FPersons?database=master";
+                //        //client.BaseAddress = new Uri(url);
+
+                //        o = new JObject
+                //        {
+                //            { "ItemName", "Test Person 1" },
+                //            { "TemplateID", "9D5BEACE-14DB-4EA2-8F1F-A087A8DAC5F0" },
+                //            { "First Name", firstName },
+                //            { "Last Name", lastName }
+                //        };
+
+                //        json = o.ToString();
+
+                //        body = new StringContent(json);
+                //        body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+                //        response = client.PostAsync(url, body).Result;
+
+                //        if (response.IsSuccessStatusCode)
+                //        {
+                //            Logger.Info("RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
+
+                //        }
+                //        else
+                //        {
+                //            Logger.Info("ADD PERSON BOMBED: " + response.ReasonPhrase, this);
+                //        }
+
+                //            //// Parse the response body. Blocking!
+                //            //var dataObjects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;
+                //            //foreach (var d in dataObjects)
+                //            //{
+                //            //    Console.WriteLine("{0}", d.Name);
+                //            //}
+                //        }
+                //    else
+                //    {
+                //        //Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+                //        Logger.Info("LOGIN FAILED: " + response.ReasonPhrase, this);
+                //    }
 
 
-            }
-            else
-            {
-                Logger.Warn(Invariant($"Form {formSubmitContext.FormId} submitted with errors: {string.Join(", ", formSubmitContext.Errors.Select(t => t.ErrorMessage))}."), this);
-            }
-            return true;
+                //}
+                //else
+                //{
+                //    Logger.Warn(Invariant($"Form {formSubmitContext.FormId} submitted with errors: {string.Join(", ", formSubmitContext.Errors.Select(t => t.ErrorMessage))}."), this);
+                //}
+                
+            
         }
     }
 }
