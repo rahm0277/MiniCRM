@@ -41,6 +41,14 @@ namespace Sitecore.Feature.Persons.Models
             }
         }
 
+        public string Phone
+        {
+            get
+            {
+                return FieldRenderer.Render(_item, "Phone");
+            }
+        }
+
         public string Address
         {
             get
