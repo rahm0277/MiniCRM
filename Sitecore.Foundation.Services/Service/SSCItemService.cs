@@ -17,7 +17,7 @@ namespace Sitecore.Foundation.Services.Service
       
 
 
-        private string Login(string domain, string username, string password)
+        public string Login(string domain, string username, string password)
         {
             HttpClient client = new HttpClient();
             string url = "https://minicrm/sitecore/api/ssc/auth/login";

@@ -1,0 +1,27 @@
+﻿@using Sitecore.ContentSearch.SearchTypes;
+@using Sitecore.Data.Items;
+@using Sitecore.Web.UI.WebControls;
+@using Sitecore.Feature.Persons.Models;
+
+@model List<Person>
+
+    @{
+        Layout = null;
+    }
+
+    
+<form action="/Home">
+    <input id="email" type="text" name="email">
+    <input id="phone" type="text" name="phone">
+    <input id="primarySearchBoxSubmit" class="btn-search" type="submit" value="search">
+</form>
+
+<div>
+    @foreach (Person p in Model)
+    {
+        <div>@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</div>
+        <div>@(Html.Raw(p.Address) + " " + Html.Raw(p.LastName))</div>
+    }
+
+</div>
+    

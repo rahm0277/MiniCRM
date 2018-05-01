@@ -9,6 +9,7 @@ namespace Sitecore.Foundation.Services.Service
 {
     public interface ISSCItemService
     {
+        string Login(string domain, string username, string password);
         HttpResponseMessage CallItemServiceAPI(string url, string jsonContent, string contentType, string method, string domain, string username, string password);
 
     }

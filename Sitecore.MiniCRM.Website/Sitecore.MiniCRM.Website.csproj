@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="App_Config\Include\Project\MiniCRM.Website.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
