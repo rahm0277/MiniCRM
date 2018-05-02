@@ -1,17 +1,73 @@
-﻿@{
+﻿@using Sitecore.ExperienceForms.Mvc.Html
+
+@{
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mini CRM</title>
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+
+    <style type="text/css">
+
+        .container-fluid {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1200px;
+        }
+
+        .btn-primary {
+            margin-top: 10px;
+        }
+
+        .field-validation-error 
+        {
+            color: red;
+            display: block;
+        }
+
+        .formthanks {
+            display: none;
+        }
+    </style>
+
+    
+
+    @Html.RenderFormStyles()
+    
+
 </head>
 <body>
-    <div>
+
+    <div class="container-fluid">
         @Html.Sitecore().Placeholder("main-content")
     </div>
+
+
+    <script src="/Scripts/jquery-3.0.0.slim.min.js"></script>
+    <script src="/Scripts/umd/popper.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    @Html.RenderFormScripts()
+    <script language="javascript">
+
+        $(document).ready(function () {
+
+
+            var form = $(".person-add-form");
+            if (form) {
+
+                form.attr("data-ajax-success", form.attr("data-ajax-success") + ';$(".formthanks").toggle();')
+
+               
+            };
+
+
+        })
+    </script>
 </body>
 </html>

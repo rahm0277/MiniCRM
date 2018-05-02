@@ -5,19 +5,23 @@
 
 @model List<Person>
 
-    @{
-        Layout = null;
-    }
+@{
+   
+                Layout = null;
+}
 
-<div>
-    @foreach (Person p in Model)
+<h2>Contact Listing</h2>
+
+
+@foreach (Person p in Model)
     {
-        <div>@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</div>
-        <div>@Html.Raw(p.Address)</div>
-        <div>@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</div>
-        <div>@Html.Raw(p.Email)</div>
-        <div>@Html.Raw(p.Phone)</div>
-    }
+        <div class="row">
+            <div>@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</div>
+            <div>@Html.Raw(p.Address)</div>
+            <div>@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</div>
+            <div>@Html.Raw(p.Email)</div>
+            <div>@Html.Raw(p.Phone)</div>
+        </div>
+        }
 
-</div>
-    
+   
