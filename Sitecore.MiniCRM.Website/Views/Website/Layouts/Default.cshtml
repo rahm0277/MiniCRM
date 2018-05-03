@@ -11,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mini CRM</title>
     <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <script src="/Scripts/jquery-3.0.0.min.js"></script>
+
+    <script language="javascript">
+        var $j = jQuery.noConflict();
+    </script>
 
     <style type="text/css">
 
@@ -53,21 +58,7 @@
     <script src="/Scripts/bootstrap.min.js"></script>
 
     @Html.RenderFormScripts()
-    <script language="javascript">
-
-        $(document).ready(function () {
 
 
-            var form = $(".person-add-form");
-            if (form) {
-
-                form.attr("data-ajax-success", form.attr("data-ajax-success") + ';$(".formthanks").toggle();')
-
-               
-            };
-
-
-        })
-    </script>
 </body>
 </html>

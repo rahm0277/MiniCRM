@@ -1,0 +1,42 @@
+﻿@using System.Collections.Specialized
+@model  Sitecore.Feature.Forms.Models.SimpleText
+
+
+@{
+    Layout = null;
+}
+
+
+
+@{
+
+    var rc = Sitecore.Mvc.Presentation.RenderingContext.CurrentOrNull;
+    NameValueCollection parameters = Sitecore.Web.WebUtil.ParseUrlParameters(rc.Rendering["Parameters"]);
+    string formclassname = parameters.Get("Form Class Name");
+
+
+    <style type="text/css">
+        .@formclassname-formthanks {
+            display: none;
+        }
+    </style>
+
+    <script language="javascript">
+
+    $j(document).ready(function ($) {
+        var form = $(".@formclassname")
+
+        //var btn = $("[name='fxb.d5c1c591-7b4e-4d7a-ab5d-8df9324828d7.b0024125-4a00-42dc-9889-658e03b2d6d4']")
+        //btn.click(function () {
+        //    alert('clicked!');
+        //})
+
+        form.attr("data-ajax-success", form.attr("data-ajax-success") + ';$(".@formclassname-formthanks").css("display", "block");')
+    })
+    </script>
+
+    <div class="@formclassname-formthanks">@Html.Raw(Model.TextBody)</div>
+
+}
+
+
