@@ -185,6 +185,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\Person\PersonListing.cshtml" />
+    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Foundation.Person.Solr.Index.Master.config" />
+    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Foundation.Person.Solr.Index.Web.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Person\PersonSearch.cshtml" />
     <None Include="Web.config" />
@@ -196,6 +198,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PersonSearchListing.cs" />
     <Compile Include="Models\PersonSearchResultItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IPersonService.cs" />

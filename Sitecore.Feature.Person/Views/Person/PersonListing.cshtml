@@ -3,7 +3,7 @@
 @using Sitecore.Web.UI.WebControls;
 @using Sitecore.Feature.Persons.Models;
 
-@model List<Person>
+@model PersonSearchListing
 
 @{
    
@@ -13,7 +13,7 @@
 <h2>Contact Listing</h2>
 
 
-@foreach (Person p in Model)
+@foreach (Person p in Model.ListingResults)
     {
         <div class="row">
             <div>@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</div>
@@ -21,7 +21,12 @@
             <div>@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</div>
             <div>@Html.Raw(p.Email)</div>
             <div>@Html.Raw(p.Phone)</div>
+            <br />
         </div>
         }
 
-   
+@for(int i=1; i <= Model.NumberOfPages; i++)
+{
+        <a href="/Home?email=@Model.Email&phone=@Model.Phone&page=@i">@(i + " ")</a>
+}
+

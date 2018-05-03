@@ -1,6 +1,7 @@
 ﻿using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq;
 using Sitecore.ContentSearch.SearchTypes;
+using Sitecore.Feature.Persons.Models;
 using Sitecore.Feature.Persons.Service;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,9 @@ namespace Sitecore.Feature.Persons.Controllers
             int? pg = (page == null ? 1 : page);
            
             PersonService ps = new PersonService();
-            List<Sitecore.Feature.Persons.Models.Person> filteredList = ps.GetPersons(email, phone, (int)pg);
+            PersonSearchListing pl = ps.GetPersons(email, phone, (int)pg);
             
-            return View(filteredList);
+            return View(pl);
 
         }
     }

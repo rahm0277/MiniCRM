@@ -12,11 +12,19 @@ namespace Sitecore.Feature.Persons.Service
 {
     public class PersonService :IPersonService
     {
-        public List<Sitecore.Feature.Persons.Models.Person> GetPersons(string email, string phone, int page)
+        private int pageSize = 4;
+
+        public PersonSearchListing GetPersons(string email, string phone, int page)
         {
             var index = ContentSearchManager.GetIndex("minicrm_person_master_index");
 
             List<Sitecore.Feature.Persons.Models.Person> filteredList = new List<Sitecore.Feature.Persons.Models.Person>();
+            PersonSearchListing pl = new PersonSearchListing();
+
+            pl.PageSize = pageSize;
+            pl.Email = email;
+            pl.Phone = phone;
+            pl.PageNumber = page;
 
             var filterPredicate = PredicateBuilder.True<PersonSearchResultItem>();
 
@@ -45,16 +53,29 @@ namespace Sitecore.Feature.Persons.Service
                 var result = query.GetResults();
                 var resultItems = result.Hits;
 
-                foreach (var searchResult in resultItems)
+                if (result.Hits.Any())
                 {
-                    SearchResultItem gsi = searchResult.Document;
-                    Sitecore.Feature.Persons.Models.Person p = new Sitecore.Feature.Persons.Models.Person(gsi.GetItem());
-                    filteredList.Add(p);
-                }
+                    foreach (var searchResult in resultItems)
+                    {
+                        SearchResultItem gsi = searchResult.Document;
+                        Sitecore.Feature.Persons.Models.Person p = new Sitecore.Feature.Persons.Models.Person(gsi.GetItem());
+                        filteredList.Add(p);
+                    }
 
+                    int skip = pageSize * (page == 1 ? 0 : page - 1);
+                    int take = ((result.Hits.Count() - skip) >= pageSize ? pageSize : (result.Hits.Count() - skip));
+
+                    filteredList = filteredList.Skip(skip).Take(pageSize).ToList<Sitecore.Feature.Persons.Models.Person>();
+                    pl.ListingResults = filteredList;
+                    pl.TotalResults = result.Hits.Count();
+                }
+                else
+                {
+                    pl.TotalResults = 0;
+                }
             }
             
-            return filteredList;
+            return pl;
         }
 
         
