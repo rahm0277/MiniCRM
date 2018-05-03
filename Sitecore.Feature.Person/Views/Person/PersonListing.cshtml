@@ -6,27 +6,49 @@
 @model PersonSearchListing
 
 @{
-   
-                Layout = null;
+
+    Layout = null;
 }
 
-<h2>Contact Listing</h2>
+<h2>@Sitecore.Globalization.Translate.TextByDomain("MiniCRM", "Contact Listing Title")</h2>
 
+<div class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Person p in Model.ListingResults)
+            {
+                <tr>
+                    <th scope="row">@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</th>
+                    <td>@Html.Raw(p.Address)<br />@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</td>
+                    <td>@Html.Raw(p.Email)</td>
+                    <td>@Html.Raw(p.Phone)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-@foreach (Person p in Model.ListingResults)
-    {
-        <div class="row">
-            <div>@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</div>
-            <div>@Html.Raw(p.Address)</div>
-            <div>@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</div>
-            <div>@Html.Raw(p.Email)</div>
-            <div>@Html.Raw(p.Phone)</div>
-            <br />
-        </div>
-        }
-
-@for(int i=1; i <= Model.NumberOfPages; i++)
-{
-        <a href="/Home?email=@Model.Email&phone=@Model.Phone&page=@i">@(i + " ")</a>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.NumberOfPages; i++)
+        {
+            string active = "";
+            if (i == Model.PageNumber)
+            {
+                active = "active";
+            }
+        <li class="page-item @active"><a class="page-link" href="/Home?email=@Model.Email&phone=@Model.Phone&page=@i">@i</a></li>
 }
+    </ul>
+</nav>
+
+
 

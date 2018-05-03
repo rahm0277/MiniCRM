@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mini CRM</title>
+    <title>@Html.Sitecore().Field("Browser Title", Html.Sitecore().CurrentRendering.Item) - @Html.Sitecore().Field("Page Title", Html.Sitecore().CurrentRendering.Item)</title>
     <link rel="stylesheet" href="/Content/bootstrap.min.css" />
     <script src="/Scripts/jquery-3.0.0.min.js"></script>
 
@@ -29,21 +29,25 @@
             margin-top: 10px;
         }
 
-        .field-validation-error 
-        {
+        .field-validation-error {
             color: red;
             display: block;
         }
 
-        .formthanks {
-            display: none;
+        .table-wrapper {
+            padding: 1.5rem;
+            margin-right: 0;
+            margin-left: 0;
+            border-width: .2rem;
+            margin: 1rem -15px 0;
+            border: solid #f7f7f9;
         }
     </style>
 
-    
+
 
     @Html.RenderFormStyles()
-    
+
 
 </head>
 <body>

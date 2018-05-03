@@ -3,8 +3,29 @@
     Layout = null;
 }
 
-<form action="/Home">
-    <input id="email" type="text" name="email">
-    <input id="phone" type="text" name="phone">
-    <input id="primarySearchBoxSubmit" type="submit" value="search">
-</form>
+<h2>@Sitecore.Globalization.Translate.TextByDomain("MiniCRM", "Contact Search Title")</h2>
+
+ 
+       
+        
+       
+
+    
+<div class="table-wrapper">
+    <div class="form-group row" style="padding: 1.5rem;">
+        <form action="/Home">
+            <div class="col-sm-2">
+                <label for="email">Email</label>
+                <input id="email" type="text" name="email" class="form-control">
+            </div>
+            <div class="col-sm-2">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" name="phone" class="form-control">
+            </div>
+            <div class="col-8">
+                <input id="primarySearchBoxSubmit" type="submit" value="Search" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
+    

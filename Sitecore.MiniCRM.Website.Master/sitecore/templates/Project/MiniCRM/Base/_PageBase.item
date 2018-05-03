@@ -1,40 +1,26 @@
 ----item----
 version: 1
-id: {98B9FFD3-C2CD-4C2A-B18F-CE763D0F87CB}
+id: {E9082E63-BFEE-4378-9FD0-773DF36EBD8E}
 database: master
-path: /sitecore/templates/Project/MiniCRM/Pages/Person Listing Page
-parent: {FB91FAA2-B43F-42B3-B3B9-FA32C30A1BD8}
-name: Person Listing Page
+path: /sitecore/templates/Project/MiniCRM/Base/_PageBase
+parent: {18353F21-500B-490A-AEEA-20C63D864204}
+name: _PageBase
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
-created: 20180424T040628Z
+created: 20180503T175733Z
 
 ----field----
 field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
 name: __Base template
 key: __base template
-content-length: 77
-
-{1930BBEB-7805-471A-A3BE-4858AC7CF696}|{E9082E63-BFEE-4378-9FD0-773DF36EBD8E}
-----field----
-field: {F7D48A55-2158-4F02-9356-756654404F73}
-name: __Standard values
-key: __standard values
 content-length: 38
 
-{4369A3DC-157E-4E56-87C9-30670BAB42BF}
-----field----
-field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
-name: __Icon
-key: __icon
-content-length: 34
-
-Business/32x32/businessman_add.png
+{1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----version----
 language: en
 version: 1
-revision: 9deef82f-45e4-4981-9b3a-0c583f754ee8
+revision: 64163b16-53d7-4fcb-91a3-8e75ceae003c
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -42,7 +28,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20180424T040628Z
+20180503T175733Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -56,14 +42,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-9deef82f-45e4-4981-9b3a-0c583f754ee8
+64163b16-53d7-4fcb-91a3-8e75ceae003c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180503T175828Z
+20180503T175733Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
