@@ -20,7 +20,8 @@ namespace Sitecore.Feature.Persons.Models
                 return (int)Math.Ceiling((double)TotalResults / (double)PageSize);
             }
         }
-
+        public int StartRecord { get; set; }
+        public int EndRecord { get; set; }
 
     }
 }

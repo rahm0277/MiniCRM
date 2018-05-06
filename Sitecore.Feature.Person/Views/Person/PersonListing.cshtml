@@ -10,30 +10,62 @@
     Layout = null;
 }
 
+<style type="text/css">
+
+    .not-active {
+        pointer-events: none;
+        cursor: default;
+        text-decoration: none;
+        color: black;
+    }
+
+    .table-wrapper {
+        padding: 1.5rem;
+        margin-right: 0;
+        margin-left: 0;
+        border-width: .2rem;
+        margin: 1rem -15px 0;
+        border: solid #f7f7f9;
+    }
+</style>
+
 <h2>@Sitecore.Globalization.Translate.TextByDomain("MiniCRM", "Contact Listing Title")</h2>
 
+
 <div class="table-wrapper">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Person p in Model.ListingResults)
-            {
+
+    @if (Model.TotalResults > 0)
+    {
+        <p style="font-style: italic;">Showing @Model.StartRecord.ToString() to @Model.EndRecord.ToString() of @Model.TotalResults.ToString() records.</p>
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <th scope="row">@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</th>
-                    <td>@Html.Raw(p.Address)<br />@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</td>
-                    <td>@Html.Raw(p.Email)</td>
-                    <td>@Html.Raw(p.Phone)</td>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+
+                @foreach (Person p in Model.ListingResults)
+                {
+                    <tr>
+                        <th scope="row">@(Html.Raw(p.FirstName) + " " + Html.Raw(p.LastName))</th>
+                        <td>@Html.Raw(p.Address)<br />@(Html.Raw(p.City) + ", " + Html.Raw(p.State) + " " + Html.Raw(p.Zip))</td>
+                        <td>@Html.Raw(p.Email)</td>
+                        <td>@Html.Raw(p.Phone)</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Your search did not yield any results.</p>
+    }
 </div>
 
 <nav aria-label="Page navigation example">
@@ -45,8 +77,8 @@
             {
                 active = "active";
             }
-        <li class="page-item @active"><a class="page-link" href="/Home?email=@Model.Email&phone=@Model.Phone&page=@i">@i</a></li>
-}
+            <li class="page-item @active"><a class="page-link" href="/Home?email=@Model.Email&phone=@Model.Phone&page=@i">@i</a></li>
+        }
     </ul>
 </nav>
 

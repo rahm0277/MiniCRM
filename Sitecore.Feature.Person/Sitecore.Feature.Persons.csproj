@@ -185,8 +185,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\Person\PersonListing.cshtml" />
-    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Foundation.Person.Solr.Index.Master.config" />
-    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Foundation.Person.Solr.Index.Web.config" />
+    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Solr.Index.Master.config" />
+    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Solr.Index.Web.config" />
+    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Solr.IndexConfiguration.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Person\PersonSearch.cshtml" />
     <None Include="Web.config" />

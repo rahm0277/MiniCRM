@@ -65,6 +65,9 @@ namespace Sitecore.Feature.Persons.Service
                     int skip = pageSize * (page == 1 ? 0 : page - 1);
                     int take = ((result.Hits.Count() - skip) >= pageSize ? pageSize : (result.Hits.Count() - skip));
 
+                    pl.StartRecord = skip + 1;
+                    pl.EndRecord = (skip + pageSize) >= result.Hits.Count() ? result.Hits.Count() : (skip + pageSize);
+
                     filteredList = filteredList.Skip(skip).Take(pageSize).ToList<Sitecore.Feature.Persons.Models.Person>();
                     pl.ListingResults = filteredList;
                     pl.TotalResults = result.Hits.Count();

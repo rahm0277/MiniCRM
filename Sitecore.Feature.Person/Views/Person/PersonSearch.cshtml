@@ -5,27 +5,19 @@
 
 <h2>@Sitecore.Globalization.Translate.TextByDomain("MiniCRM", "Contact Search Title")</h2>
 
- 
-       
-        
-       
-
-    
-<div class="table-wrapper">
-    <div class="form-group row" style="padding: 1.5rem;">
-        <form action="/Home">
-            <div class="col-sm-2">
-                <label for="email">Email</label>
-                <input id="email" type="text" name="email" class="form-control">
-            </div>
-            <div class="col-sm-2">
-                <label for="phone">Phone</label>
-                <input id="phone" type="text" name="phone" class="form-control">
-            </div>
-            <div class="col-8">
-                <input id="primarySearchBoxSubmit" type="submit" value="Search" class="btn btn-primary">
-            </div>
-        </form>
-    </div>
+<div class="col-sm-12 col-md-12 table-wrapper"">
+    <form class="form-inline" action="/Home">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:24px; width: 100px;">Search</button>
+    </form>
 </div>
-    
+
+
+  
