@@ -1,0 +1,59 @@
+----item----
+version: 1
+id: {A1C976CD-82BA-40E8-89F6-8507A398A38F}
+database: master
+path: /sitecore/content/MiniCRM/Site Settings/MiniCRM
+parent: {2D7F5FAE-8F96-4EB8-859E-4232C35D4A4D}
+name: MiniCRM
+master: {00000000-0000-0000-0000-000000000000}
+template: {0A2847E6-9885-450B-B61E-F9E6528480EF}
+templatekey: Dictionary Domain
+created: 20180503T035736Z
+
+----field----
+field: {CD72E892-D8BB-487C-9EB1-6A57C48C72CC}
+name: Fallback Domain
+key: fallback domain
+content-length: 38
+
+{A1C976CD-82BA-40E8-89F6-8507A398A38F}
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 22
+
+People/32x32/books.png
+----version----
+language: en
+version: 1
+revision: 062400a8-1a6a-45c7-a4c3-0e316fe7ddd9
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180503T035736Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+062400a8-1a6a-45c7-a4c3-0e316fe7ddd9
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180506T044628Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
