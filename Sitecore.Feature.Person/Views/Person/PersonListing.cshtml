@@ -29,22 +29,22 @@
     }
 </style>
 
-<h2>@Sitecore.Globalization.Translate.TextByDomain("MiniCRM", "Contact Listing Title")</h2>
+<h2>@Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "Contact Listing Title")</h2>
 
 
 <div class="table-wrapper">
 
     @if (Model.TotalResults > 0)
     {
-        <p style="font-style: italic;">Showing @Model.StartRecord.ToString() to @Model.EndRecord.ToString() of @Model.TotalResults.ToString() records.</p>
-
+        <p style="font-style: italic;">@String.Format(Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "Result Counter"), Model.StartRecord.ToString(), Model.EndRecord.ToString(), Model.TotalResults.ToString())</p>
+    
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
+                    <th scope="col">@Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "Name")</th>
+                    <th scope="col">@Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "Address")</th>
+                    <th scope="col">@Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "Email")</th>
+                    <th scope="col">@Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "Phone")</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,7 +64,7 @@
     }
     else
     {
-        <p>Your search did not yield any results.</p>
+        <p>@Sitecore.Globalization.Translate.TextByDomain(DictionaryDomain, "No Results")</p>
     }
 </div>
 

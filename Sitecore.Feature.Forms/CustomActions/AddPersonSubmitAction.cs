@@ -15,19 +15,38 @@ using static System.FormattableString;
 
 namespace Sitecore.Feature.Forms.CustomActions
 {
+    /// <summary>
+    /// Custom submit action for adding a new person/contact. This class is hooked up in Sitecore in system/settings/forms/submit actions
+    /// </summary>
     public class AddPersonSubmitAction : SubmitActionBase<string>
     {
+        /// <summary>
+        /// Empty constructor for invoking base class
+        /// </summary>
+        /// <param name="submitActionData"></param>
         public AddPersonSubmitAction(ISubmitActionData submitActionData) : base(submitActionData)
         {
 
         }
 
+        /// <summary>
+        /// Helper method for testing string value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         protected override bool TryParse(string value, out string target)
         {
             target = string.Empty;
             return true;
         }
 
+        /// <summary>
+        /// Gelper method for getting the value from form parameter
+        /// </summary>
+        /// <param name="fieldName"></param>
+        /// <param name="formSubmitContext"></param>
+        /// <returns></returns>
         private string GetValue(string fieldName, FormSubmitContext formSubmitContext)
         {
             string val = string.Empty;
@@ -46,6 +65,12 @@ namespace Sitecore.Feature.Forms.CustomActions
             return val;
         }
 
+        /// <summary>
+        /// Execute method that is called when the submit action for the form is invoked.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="formSubmitContext"></param>
+        /// <returns></returns>
         protected override bool Execute(string data, FormSubmitContext formSubmitContext)
         {
             Assert.ArgumentNotNull(formSubmitContext, nameof(formSubmitContext));
@@ -54,6 +79,8 @@ namespace Sitecore.Feature.Forms.CustomActions
             {
                 Logger.Info(Invariant($"Form {formSubmitContext.FormId} submitted successfully."), this);
 
+                //TODO: hard coded the form values. In order to make this dynamic, it needs to be tied to the form and it's form fields
+                //This may be possible by looping over formSubmitContext.Fields
                 string firstName = GetValue("FirstName", formSubmitContext);
                 string lastName = GetValue("LastName", formSubmitContext);
                 string email = GetValue("Email", formSubmitContext);
@@ -79,78 +106,6 @@ namespace Sitecore.Feature.Forms.CustomActions
             }
 
             return false;
-                //    string contentType = "application/json";
-                //    string url = @"https://minicrm/sitecore/api/ssc/auth/login";
-                //    HttpClient client = new HttpClient();
-                //    client.BaseAddress = new Uri(url);
-
-                //    HttpResponseMessage response;
-                //    var method = new HttpMethod("POST");
-
-                //    JObject o = new JObject
-                //    {
-                //        { "domain", "sitecore" },
-                //        { "username", "admin" },
-                //        { "password", "b" }
-                //    };
-
-                //    string json = o.ToString();
-
-                //    HttpContent body = new StringContent(json);
-                //    body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
-                //    response = client.PostAsync(url, body).Result;
-
-                //    if (response.IsSuccessStatusCode)
-                //    {
-                //        Logger.Info("LOGIN RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
-
-                //        //client = new HttpClient();
-                //        url = @"https://minicrm/sitecore/api/ssc/item/sitecore%2Fcontent%2FMiniCRM%2FSite%20Content%2FPersons?database=master";
-                //        //client.BaseAddress = new Uri(url);
-
-                //        o = new JObject
-                //        {
-                //            { "ItemName", "Test Person 1" },
-                //            { "TemplateID", "9D5BEACE-14DB-4EA2-8F1F-A087A8DAC5F0" },
-                //            { "First Name", firstName },
-                //            { "Last Name", lastName }
-                //        };
-
-                //        json = o.ToString();
-
-                //        body = new StringContent(json);
-                //        body.Headers.ContentType = new MediaTypeHeaderValue(contentType);
-                //        response = client.PostAsync(url, body).Result;
-
-                //        if (response.IsSuccessStatusCode)
-                //        {
-                //            Logger.Info("RESPONSE: " + response.Content.ReadAsStringAsync().Result, this);
-
-                //        }
-                //        else
-                //        {
-                //            Logger.Info("ADD PERSON BOMBED: " + response.ReasonPhrase, this);
-                //        }
-
-                //            //// Parse the response body. Blocking!
-                //            //var dataObjects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;
-                //            //foreach (var d in dataObjects)
-                //            //{
-                //            //    Console.WriteLine("{0}", d.Name);
-                //            //}
-                //        }
-                //    else
-                //    {
-                //        //Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
-                //        Logger.Info("LOGIN FAILED: " + response.ReasonPhrase, this);
-                //    }
-
-
-                //}
-                //else
-                //{
-                //    Logger.Warn(Invariant($"Form {formSubmitContext.FormId} submitted with errors: {string.Join(", ", formSubmitContext.Errors.Select(t => t.ErrorMessage))}."), this);
-                //}
                 
             
         }

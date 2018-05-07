@@ -24,7 +24,7 @@ namespace Sitecore.Feature.Persons.Controllers
             int? pg = (page == null ? 1 : page);
            
             PersonService ps = new PersonService();
-            PersonSearchListing pl = ps.GetPersons(email, phone, (int)pg);
+            PersonSearchListing pl = ps.GetPersons(email, phone, (int)pg, Sitecore.Context.Database.Name);
             
             return View(pl);
 

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sitecore.Foundation.Services.Service
 {
+    /// <summary>
+    /// Interface for SC Item Service 
+    /// </summary>
     public interface ISSCItemService
     {
         string Login(string domain, string username, string password);

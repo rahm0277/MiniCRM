@@ -1,0 +1,115 @@
+----item----
+version: 1
+id: {ED28B184-306F-4056-AEFF-5ECD572F078E}
+database: master
+path: /sitecore/content/MiniCRM/Site Content/Persons/Test Person 7
+parent: {CAB2124E-BA0A-4F57-89E8-5438AA731251}
+name: Test Person 7
+master: {00000000-0000-0000-0000-000000000000}
+template: {9D5BEACE-14DB-4EA2-8F1F-A087A8DAC5F0}
+templatekey: _Person
+created: 20180506T035948Z
+
+----version----
+language: en
+version: 1
+revision: ba8f5578-bd50-4d7e-9802-a7801ac19343
+
+----field----
+field: {0D4F435F-57D3-45B9-B6F4-90E03C2D29DA}
+name: First Name
+key: first name
+content-length: 4
+
+Test
+----field----
+field: {20A52487-2CB9-495B-A04F-E62DBDFC127E}
+name: Last Name
+key: last name
+content-length: 8
+
+Person 7
+----field----
+field: {36E5527F-75C1-4B01-B2AB-6C95F28454CB}
+name: Email
+key: email
+content-length: 20
+
+testperson7@test.com
+----field----
+field: {8AD15395-2E2A-4688-8210-D6192B35ABF3}
+name: Phone
+key: phone
+content-length: 10
+
+5167774444
+----field----
+field: {4DDE532B-6A0B-4299-B1D7-1ADA835F7581}
+name: Address
+key: address
+content-length: 14
+
+600 Testing Rd
+----field----
+field: {15D83CD6-4F4B-48BA-A07C-A9A516CDBA93}
+name: City
+key: city
+content-length: 8
+
+New York
+----field----
+field: {A613B3C1-DEFF-4356-BB92-DC2343C58637}
+name: State
+key: state
+content-length: 2
+
+NY
+----field----
+field: {2B6307C6-C981-44BB-B0AC-045808E106FC}
+name: Zip
+key: zip
+content-length: 5
+
+11111
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180506T035730Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+ba8f5578-bd50-4d7e-9802-a7801ac19343
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180506T035956Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

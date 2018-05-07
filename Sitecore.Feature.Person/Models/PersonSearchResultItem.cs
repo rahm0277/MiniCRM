@@ -7,6 +7,9 @@ using System.Web;
 
 namespace Sitecore.Feature.Persons.Models
 {
+    /// <summary>
+    /// Search result item to map to index
+    /// </summary>
     public class PersonSearchResultItem : SearchResultItem
     {
         [IndexField("first name")]

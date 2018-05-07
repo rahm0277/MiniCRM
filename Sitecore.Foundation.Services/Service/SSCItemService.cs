@@ -12,15 +12,25 @@ using System.Web;
 
 namespace Sitecore.Foundation.Services.Service
 {
+    /// <summary>
+    /// Service class to use the Sitecore Item Service functionality.
+    /// Implements ISSCItemService Interface
+    /// </summary>
     public class SSCItemService : ISSCItemService
     {
-      
 
-
+      /// <summary>
+      /// Authenticates against Sitecore for the Sitecore Item Service and returns a token string to indicate successful login.
+      /// Token must be passed in header with subsequent calls to the API
+      /// </summary>
+      /// <param name="domain"></param>
+      /// <param name="username"></param>
+      /// <param name="password"></param>
+      /// <returns></returns>
         public string Login(string domain, string username, string password)
         {
             HttpClient client = new HttpClient();
-            string url = "https://minicrm/sitecore/api/ssc/auth/login";
+            string url = Sitecore.Configuration.Settings.GetSetting("Sitecore.Foundation.Services.ItemService.LoginUrl");
 
             JObject o = new JObject
             {
@@ -61,11 +71,22 @@ namespace Sitecore.Foundation.Services.Service
             }
         }
 
+        /// <summary>
+        /// Calls the Item Service with URL and Json content passed in from calling class
+        /// </summary>
+        /// <param name="url">The URL to call</param>
+        /// <param name="jsonContent">string JSON content of the body</param>
+        /// <param name="contentType">mime type - usually application/json</param>
+        /// <param name="method">Method as needed by the specific method of the API</param>
+        /// <param name="domain"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public HttpResponseMessage CallItemServiceAPI(string url, string jsonContent, string contentType, string method, string domain, string username, string password)
         {
             string token = Login(domain, username, password);
 
-            Sitecore.Diagnostics.Log.Info("TOKEN: " + token, this);
+            //Sitecore.Diagnostics.Log.Info("TOKEN: " + token, this);
 
             if (token != "")
             {

@@ -164,6 +164,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="App_Config\Include\Foundation\Services\Sitecore.Foundation.Services.config" />
+    <Content Include="App_Config\Include\Foundation\Services\Sitecore.Foundation.Services.Settings.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

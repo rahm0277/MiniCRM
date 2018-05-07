@@ -188,6 +188,9 @@
     <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Solr.Index.Master.config" />
     <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Solr.Index.Web.config" />
     <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Solr.IndexConfiguration.config" />
+    <Content Include="App_Config\Include\Feature\Persons\Sitecore.Feature.Person.Settings.Config">
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Person\PersonSearch.cshtml" />
     <None Include="Web.config" />
@@ -217,6 +220,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sitecore.Foundation.Dictionary\Sitecore.Foundation.BaseView.csproj">
+      <Project>{d1e62f11-69df-4053-8657-b56833569dfd}</Project>
+      <Name>Sitecore.Foundation.BaseView</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,6 +5,9 @@ using System.Web;
 
 namespace Sitecore.Feature.Persons.Models
 {
+    /// <summary>
+    /// View Model for the person listing module
+    /// </summary>
     public class PersonSearchListing
     {
         public List<Sitecore.Feature.Persons.Models.Person> ListingResults { get; set; }

@@ -37,6 +37,14 @@ Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Foundation.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Services", "Sitecore.Foundation.Services\Sitecore.Foundation.Services.csproj", "{D6504BA5-5A33-4F96-A222-01A5045F3AFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.BaseView", "Sitecore.Foundation.Dictionary\Sitecore.Foundation.BaseView.csproj", "{D1E62F11-69DF-4053-8657-B56833569DFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0A732EBC-D878-4907-860F-27588598E0EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseView", "BaseView", "{A980FC75-47D2-444A-A0CF-2E160F225FEB}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Foundation.BaseView.Master", "Sitecore.Foundation.BaseView.Master\Sitecore.Foundation.BaseView.Master.scproj", "{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +88,16 @@ Global
 		{D6504BA5-5A33-4F96-A222-01A5045F3AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6504BA5-5A33-4F96-A222-01A5045F3AFB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6504BA5-5A33-4F96-A222-01A5045F3AFB}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D1E62F11-69DF-4053-8657-B56833569DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E62F11-69DF-4053-8657-B56833569DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E62F11-69DF-4053-8657-B56833569DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E62F11-69DF-4053-8657-B56833569DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,11 +114,15 @@ Global
 		{98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D} = {D932BB5E-7CE7-4353-8AC3-6793F9B197B8}
 		{58C5B5A9-1996-41A2-A463-AA7F8F61247C} = {98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D}
 		{E7D93A90-A347-4BFE-B3DA-D00371687F19} = {98A1BAA6-B4A9-48F7-8DE9-F0DEEAC8FE6D}
-		{5E0A04BD-76FA-47A0-86D0-33883940CFE4} = {B1BDFEEF-B871-48EA-83F2-358F43BA9B49}
-		{D6504BA5-5A33-4F96-A222-01A5045F3AFB} = {B1BDFEEF-B871-48EA-83F2-358F43BA9B49}
+		{5E0A04BD-76FA-47A0-86D0-33883940CFE4} = {0A732EBC-D878-4907-860F-27588598E0EC}
+		{D6504BA5-5A33-4F96-A222-01A5045F3AFB} = {0A732EBC-D878-4907-860F-27588598E0EC}
+		{D1E62F11-69DF-4053-8657-B56833569DFD} = {A980FC75-47D2-444A-A0CF-2E160F225FEB}
+		{0A732EBC-D878-4907-860F-27588598E0EC} = {B1BDFEEF-B871-48EA-83F2-358F43BA9B49}
+		{A980FC75-47D2-444A-A0CF-2E160F225FEB} = {B1BDFEEF-B871-48EA-83F2-358F43BA9B49}
+		{62AD01D1-D58D-40BD-A7FA-A92E32C63B3E} = {A980FC75-47D2-444A-A0CF-2E160F225FEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BDE7035C-5E4C-4A36-9901-226E27BC6218}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {BDE7035C-5E4C-4A36-9901-226E27BC6218}
 	EndGlobalSection
 EndGlobal
