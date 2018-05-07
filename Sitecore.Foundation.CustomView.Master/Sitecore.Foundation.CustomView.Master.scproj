@@ -4,7 +4,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>62ad01d1-d58d-40bd-a7fa-a92e32c63b3e</ProjectGuid>
+    <ProjectGuid>79b57fb3-1615-4b1d-9a11-fa8bd7464d46</ProjectGuid>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <SourceWebPhysicalPath>
     </SourceWebPhysicalPath>
@@ -15,13 +15,13 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
-    <SingleAssemblyName>Sitecore.Foundation.BaseView.Master</SingleAssemblyName>
+    <SingleAssemblyName>Sitecore.Foundation.CustomView.Master</SingleAssemblyName>
     <UseWebConfigReplacement>false</UseWebConfigReplacement>
     <DeleteAppCodeCompiledFiles>true</DeleteAppCodeCompiledFiles>
     <LegacyFileReplacement>false</LegacyFileReplacement>
-    <AssemblyName>Sitecore.Foundation.BaseView.Master</AssemblyName>
-    <Name>Sitecore.Foundation.BaseView.Master</Name>
-    <RootNamespace>Sitecore.Foundation.BaseView.Master</RootNamespace>
+    <AssemblyName>Sitecore.Foundation.CustomView.Master</AssemblyName>
+    <Name>Sitecore.Foundation.CustomView.Master</Name>
+    <RootNamespace>Sitecore.Foundation.CustomView.Master</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

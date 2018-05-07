@@ -68,8 +68,8 @@
     }
 </div>
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
+
+<ul class="pagination" style="margin-top: 10px;">
         @for (int i = 1; i <= Model.NumberOfPages; i++)
         {
             string active = "";
@@ -79,8 +79,6 @@
             }
             <li class="page-item @active"><a class="page-link" href="/Home?email=@Model.Email&phone=@Model.Phone&page=@i">@i</a></li>
         }
-    </ul>
-</nav>
-
+</ul>
 
 
