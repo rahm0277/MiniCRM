@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Web;
 using Newtonsoft.Json.Linq;
 using Sitecore.Data;
@@ -47,23 +48,63 @@ namespace Sitecore.Feature.Forms.CustomActions
         /// <param name="fieldName"></param>
         /// <param name="formSubmitContext"></param>
         /// <returns></returns>
-        private string GetValue(string fieldName, FormSubmitContext formSubmitContext)
-        {
-            string val = string.Empty;
-            //var postedFormData = formSubmitContext.PostedFormData;
-            var field = formSubmitContext.Fields.FirstOrDefault(f => f.Name.Equals(fieldName));
-            if (field != null)
-            {
-                var property = field.GetType().GetProperty("Value");
-                if (property != null)
-                {
-                    var postedVal = property.GetValue(field);
-                    val = postedVal != null ? postedVal.ToString() : string.Empty;
-                }
-            }
+        //private string GetValue(string fieldName, FormSubmitContext formSubmitContext)
+        //{
+        //    string val = string.Empty;
+        //    //var postedFormData = formSubmitContext.PostedFormData;
+        //    var field = formSubmitContext.Fields.FirstOrDefault(f => f.Name.Equals(fieldName));
+        //    if (field != null)
+        //    {
+        //        var property = field.GetType().GetProperty("Value");
+        //        if (property != null)
+        //        {
+        //            var postedVal = property.GetValue(field);
+        //            val = postedVal != null ? postedVal.ToString() : string.Empty;
+        //        }
+        //    }
 
-            return val;
+        //    return val;
+        //}
+
+        protected string GetValue(string fieldName, FormSubmitContext formSubmitContext)
+        {
+            IViewModel postedField = formSubmitContext.Fields.FirstOrDefault(f => f.Name.Equals(fieldName));
+            Assert.ArgumentNotNull((object)postedField, "postedField");
+            IValueField valueField = postedField as IValueField;
+            PropertyInfo property = postedField.GetType().GetProperty("Value");
+            object obj;
+            if (property == null)
+            {
+                obj = (object)null;
+            }
+            else
+            {
+                IViewModel viewModel = postedField;
+                obj = property.GetValue((object)viewModel);
+            }
+            object postedValue = obj;
+            if (postedValue == null)
+                return string.Empty;
+            string parsedValue = ParseFieldValue(postedValue);
+
+            return parsedValue;
         }
+
+        protected string ParseFieldValue(object postedValue)
+        {
+            Assert.ArgumentNotNull(postedValue, "postedValue");
+            List<string> list = new List<string>();
+            IList<string> secondList = postedValue as IList<string>;
+            if (secondList != null)
+            {
+                foreach (object obj in (IEnumerable<string>)secondList)
+                    list.Add(obj.ToString());
+            }
+            else
+                list.Add(postedValue.ToString());
+            return string.Join(",", (IEnumerable<string>)list);
+        }
+
 
         /// <summary>
         /// Execute method that is called when the submit action for the form is invoked.
@@ -88,6 +129,7 @@ namespace Sitecore.Feature.Forms.CustomActions
                 string address = GetValue("Address", formSubmitContext);
                 string city = GetValue("City", formSubmitContext);
                 string state = GetValue("State", formSubmitContext);
+                //string state = GetValue("StateDD", formSubmitContext);
                 string zip = GetValue("Zip", formSubmitContext);
 
                 //TODO: hook this up with constructor injection
